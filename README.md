@@ -54,3 +54,5 @@ render는 getState를 통해 state값을 가져와서 render가 새로운 state�
 2. state 값을 기반으로 화면에 그려준다.
 3. store 내의 state에 직접 접근하는 것이 금지되어 있으므로 getState를 통해 값을 가져오고, dispatch를 통해 값을 변경시키고, subscribe를 이용해 값이 변경됐을 때 구동될 함수들을 등록해준다.
 4. reducer를 통해서 state 값을 변경한다.
+
+출처: 생활코딩 Youtube
