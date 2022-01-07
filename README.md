@@ -1,6 +1,17 @@
 # Redux_Study
 Redux Study
 
+### Redux 사용하는 이유
+
+Redux를 통해 서로간의 의존성을 낮추고(Decoupling), 각자의 컴포넌트는 standalone으로 사용
+
+Redux라는 중개자를 통해 상태를 중앙집중적으로 관리하면 각 컴포넌트들은 상태가 바꼈을 때 action을 store에게 dispatch 해주고
+그에 따라 자신이 어떻게 변화해야하는지에대한 코드 작성하고 store에 subscribe(구독)시켜 놓으면 state 바뀔때 마다 통보를 받으므로 자신의 모양을 바꿀 수 있음
+blue는 green이나 red 컴포넌트에 대해 알지 못함. 각 컴포넌트는 자신의 일에만 집중하면 됨.
+
+Redux가 없다면.. 컴포넌트끼리 코드가 서로간에 강력하게 coupling(결합)되어 있음. 서로 의존 상태 (blue가 red와 green을 알고있어서 지우면 에러 발생)
+새로운 컴포넌트가 추가되면 기존의 컴포넌트 모두 업데이트 해야함
+
 ### Redux Map (redux의 전체적인 흐름)
 ![ReduxMap](https://user-images.githubusercontent.com/65672148/148309920-9fb3fcbe-9214-4642-afb3-95043d8986f6.png)
 
@@ -42,7 +53,9 @@ reducer의 return 객체는 state의 새로운 값이 됨
 
 ![Redux_reducer](https://user-images.githubusercontent.com/65672148/148312923-77eb5dbc-b780-4c6d-9ccf-d564c296d3ed.png)
 
-reducer는 state를 입력값으로 받고, action을 참조해서 새로운 state값을 만들어내서 return해 새로운 state로 변경 (state 가공자)
+reducer는 기존(이전)의 state를 입력값으로 받고, action을 참조해서 새로운 state값을 만들어내서 return하여 새로운 state로 변경 (state 가공자)
+
+*원본 state 값을 바꾸는 것이 아닌, 복제한 state 반영 결과를 return 해야지 redux를 사용하는 여러가지 효용들을 최대한 활용할 수 있다.
 
 state가 새로운 값으로 변경되면 dispatch가 subscribe를 모두 호출해 render를 호출
 
