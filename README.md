@@ -3,6 +3,10 @@ Redux Study
 
 ### Redux 사용하는 이유
 
+1. Time Travel - state가 바뀐 내역을 자유자재로 redo undo할 수 있음
+2. 단일 store가 reducer로 가공 > 모든 데이터의 상태를 reducer에서 log 찍어보면 됨
+3. 단순한 코드로 더 복잡한 기능을 구현 (redux만의 것은 아니지만)
+
 Redux를 통해 서로간의 의존성을 낮추고(Decoupling), 각자의 컴포넌트는 standalone으로 사용
 
 Redux라는 중개자를 통해 상태를 중앙집중적으로 관리하면 각 컴포넌트들은 상태가 바꼈을 때 action을 store에게 dispatch 해주고
@@ -55,7 +59,7 @@ reducer의 return 객체는 state의 새로운 값이 됨
 
 reducer는 기존(이전)의 state를 입력값으로 받고, action을 참조해서 새로운 state값을 만들어내서 return하여 새로운 state로 변경 (state 가공자)
 
-*원본 state 값을 바꾸는 것이 아닌, 복제한 state 반영 결과를 return 해야지 redux를 사용하는 여러가지 효용들을 최대한 활용할 수 있다.
+*원본 state 값을 바꾸는 것이 아닌, 복제한 state 반영 결과를 return 해야지 redux를 사용하는 여러가지 효용들을 최대한 활용할 수 있다. ex)
 
 state가 새로운 값으로 변경되면 dispatch가 subscribe를 모두 호출해 render를 호출
 
